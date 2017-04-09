@@ -4,7 +4,8 @@
 var inquirer = require('inquirer'),
     fs = require('fs'),
     basic = require('./basic'),
-    cloze = require('./cloze');
+    cloze = require('./cloze'),
+    points = 0;
 
 inquirer.prompt([
     {
@@ -64,7 +65,7 @@ inquirer.prompt([
                         ]).then(function (data){
                             var basicCard = new basic(data.question, data.answer);
                             console.log(basicCard);
-                            fs.appendFile('cards.txt', JSON.stringify(basicCard) + '\n', function(error){
+                            fs.appendFile('cards.txt', ',' + JSON.stringify(basicCard), function(error){
                                 if (error) {
                                     console.log('error', error);
                                 }
@@ -76,13 +77,38 @@ inquirer.prompt([
             break;
         case 'Take Quiz':
             console.log('taking the quiz!');
-            // inquirer.prompt([
-            //     {
-            //         type: 'input',
-            //         message: '',
-            //         name: 'queston'
-            //     }
-            // ]);
+            var cards = [];
+            var cardsLength = cards.length;
+            fs.readFile("cards.txt", "utf8", function(error, data) {
+                if (error) {
+                    console.log('error', error);
+                }
+                cards.push(data);
+                console.log(cards);
+                // function quiz() {
+                for (var i = 0; i < cards.length; i++) {
+                    var message = cards[i].question;
+                    inquirer.prompt([
+                        {
+                            type: 'input',
+                            message: message,
+                            name: 'userGuess'
+                        }
+                    ]).then(function(data) {
+                        if (data.userGuess == cards[i].answer){
+                            points++;
+                            console.log('good job!')
+                        } else {
+                            console.log('sorry, the answer was: ' + cards[i].answer);
+                        }
+
+                    });
+
+                // }
+
+                }
+
+            });
             break;
         default:
             console.log('something went wrong');

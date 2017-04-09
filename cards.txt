@@ -1,3 +1,1 @@
-{"cloze":"ariel","fullText":"ariel is the best","partial":"... is the best"}
-{"front":"who is the coolest?","back":"ariel"}
-{"cloze":"9th","fullText":"florida is the 9th largest state","partial":"florida is the ... largest state"}
+,{"question":"what is ariels favorite color","answer":"yellow"}
