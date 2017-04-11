@@ -1,1 +1,1 @@
-,{"question":"what is ariels favorite color","answer":"yellow"}
+{"question":"what is ariels favorite color","answer":"yellow"},{}{"answer":"George Washington","fullText":"George Washington was the first president of the US","question":"... was the first president of the US"}{"answer":"Kimchi","fullText":"Kimchi is a Korean side dish made of fermented cabbage and chili paste","question":"... is a Korean side dish made of fermented cabbage and chili paste"}

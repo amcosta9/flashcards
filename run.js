@@ -84,10 +84,10 @@ inquirer.prompt([
                     console.log('error', error);
                 }
                 cards.push(data);
-                console.log(cards);
                 // function quiz() {
-                for (var i = 0; i < cards.length; i++) {
-                    var message = cards[i].question;
+                for (var i = 0; i < cardsLength; i++) {
+                    var message = "testing string";
+                    console.log(cardtest.question);
                     inquirer.prompt([
                         {
                             type: 'input',
@@ -107,7 +107,7 @@ inquirer.prompt([
                 // }
 
                 }
-
+                // console.log('Great job! You scored ' + points + ' points!');
             });
             break;
         default:

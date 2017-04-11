@@ -3,7 +3,7 @@
  */
 var ClozeCard = function (answer, fullText) {
     // checks that the answer is contained within full text question
-    if (fullText.toLowerCase().indexOf(answer) >= 0) {
+    if (fullText.toLowerCase().indexOf(answer.toLowerCase()) >= 0) {
         this.answer = answer;
         this.fullText = fullText;
         this.question = fullText.replace(answer, '...');
