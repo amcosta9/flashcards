@@ -8,7 +8,9 @@ var inquirer = require('inquirer'),
     basic = require('./basic'),
     cloze = require('./cloze'),
     points = 0,
-    count = 0;
+    count = 0,
+    currentCard;
+    cards = [];
 
 // inquire if the user would like to make flashcard or take quiz
 inquirer.prompt([
@@ -20,7 +22,7 @@ inquirer.prompt([
     }
 ]).then(function (data) {
     switch (data.action) {
-        // if user selects to make flashcard, prompt which type flashcard
+        // if user selects to make flashcard, prompt which type of flashcard to make
         case 'Make Flashcard':
             inquirer.prompt([
                 {
@@ -48,8 +50,8 @@ inquirer.prompt([
                         ]).then(function (data){
                             var clozeCard = new cloze(data.answer, data.fullText);
                             console.log(clozeCard);
-                            // append new card to cards.txt
-                            fs.appendFile('cards.txt', JSON.stringify(clozeCard), function(error){
+                            // append new card to cards.txt (starting with new line)
+                            fs.appendFile('cards.txt', '\r\n' + JSON.stringify(clozeCard), function(error){
                                 if (error) {
                                     console.log('error', error);
                                 }
@@ -73,8 +75,8 @@ inquirer.prompt([
                         ]).then(function (data){
                             var basicCard = new basic(data.question, data.answer);
                             console.log(basicCard);
-                            // append new card to cards.txt
-                            fs.appendFile('cards.txt', JSON.stringify(basicCard), function(error){
+                            // append new card to cards.txt (startig with new line)
+                            fs.appendFile('cards.txt', '\r\n' + JSON.stringify(basicCard), function(error){
                                 if (error) {
                                     console.log('error', error);
                                 }
@@ -92,22 +94,25 @@ inquirer.prompt([
                 if (error) {
                     console.log('error', error);
                 }
-                var cards = JSON.parse(data);
+                // split data by new lines and assign to cards array
+                cards = data.split("\r\n");
                 // takeQuiz() will loop through cards array and increment using var count
                 function takeQuiz() {
-                    if (count < cards.length) {
+                currentCard = JSON.parse(cards[count]);
+                // quiz is looping through array 1 extra time unless adding this '-1' after length (but we do not get last question in cards array. unsure how to fix this.
+                    if (count < cards.length-1) {
                         inquirer.prompt([
                             {
                                 type: 'input',
-                                message: cards[count].question,
+                                message: currentCard.question,
                                 name: 'userGuess'
                             }
                         ]).then(function(answer) {
-                            if (answer.userGuess.toLowerCase() == cards[count].answer.toLowerCase()){
+                            if (answer.userGuess.toLowerCase() == currentCard.answer.toLowerCase()){
                                 points++;
-                                console.log('Woo Hoo!')
+                                console.log('Woo Hoo!');
                             } else {
-                                console.log('Sorry, the answer was: ' + cards[count].answer);
+                                console.log('Sorry, the answer was: ' + currentCard.answer);
                             }
                             count++;
                             takeQuiz();

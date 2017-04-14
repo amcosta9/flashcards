@@ -1,1 +1,6 @@
-[{"question":"what is Ariel's favorite color?","answer":"yellow"},{"answer":"George Washington","fullText":"George Washington was the first president of the US","question":"... was the first president of the US"},{"answer":"Kimchi","fullText":"Kimchi is a Korean side dish made of fermented cabbage and chili paste","question":"... is a Korean side dish made of fermented cabbage and chili paste"},{"answer":"black hole","fullText":"A black hole is created when a star collapses","question":"A ... is created when a star collapses"},{"question":"In pool, what color is the 1 ball?","answer":"Yellow"},{"answer":"1900","fullText":"The first Michelin Guide was published in 1900.","question":"The first Michelin Guide was published in ...."},{"question":"How many constellations are used in modern astronomy?","answer":"88"}]
+{"answer":"Kimchi","fullText":"Kimchi is Korean fermented spicy cabbage","question":"... is Korean fermented spicy cabbage"}
+{"question":"In what year was the first Michelin Guide published?","answer":"1900"}
+{"answer":"black hole","fullText":"A black hole is created when a star collapses","question":"A ... is created when a star collapses"}
+{"question":"What color is the 1 ball in pool?","answer":"yellow"}
+{"question":"What is the sleepiest animal in the world?","answer":"koala"}
+{"answer":"Great Dane","fullText":"Scooby Doo is a Great Dane","question":"Scooby Doo is a ..."}

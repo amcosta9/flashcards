@@ -8,7 +8,7 @@ var ClozeCard = function (answer, fullText) {
         this.fullText = fullText;
         this.question = fullText.replace(answer, '...');
     } else {
-        console.log('Sorry, Answer must be present in Full-text statement');
+        throw new Error('Sorry, Answer must be present in Full-text statement');
     }
 };
 
