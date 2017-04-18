@@ -25,4 +25,3 @@
 #### Assignment
 
 * This application is an [assignment](https://github.com/UCF-Coding-Boot-Camp/01-2017-VW-Class-Content/blob/master/Homework/Week-11/Instructions/HomeworkInstructions.md "Homework #11") excecuted by [Ariel M. Costa,](https://github.com/amcosta9 "Ariel Costa GitHub") for UCF Coding Bootcamp, Spring Cohort 2017.
-
